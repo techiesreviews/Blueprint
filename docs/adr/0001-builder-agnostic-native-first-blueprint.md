@@ -1,11 +1,11 @@
 # Builder-Agnostic Native-First Blueprint
 
-We will treat the project as a builder-agnostic Blueprint rather than an Elementor-specific setup or an external CSS framework. The Core records portable preferences for tokens, classes, architecture, and recipes, while each Adapter applies those decisions through native builder or platform features first.
+We will treat the project as a builder-agnostic Blueprint rather than an Elementor-specific setup or shipped standalone CSS. The Core records portable preferences for tokens, classes, architecture, and recipes, while each Adapter applies those decisions through native builder or platform features first.
 
 ## Considered Options
 
 - Elementor-specific default asset setup.
-- External CSS framework with folders for tokens, objects, components, utilities, and adapters.
+- Shipped standalone CSS with folders for tokens, objects, components, utilities, and adapters.
 - Builder-agnostic Blueprint with native-first adapters.
 
 ## Consequences

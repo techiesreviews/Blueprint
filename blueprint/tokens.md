@@ -22,7 +22,7 @@ Generated CSS reference values live in [generated-tokens.css](reference/generate
 
 ## Naming
 
-Token names intentionally follow an ACSS-inspired style:
+Token names intentionally use a short, readable style:
 
 ```txt
 --primary
@@ -89,7 +89,7 @@ theme context tokens
 --content-width
 ```
 
-Spacing uses an ACSS-style fluid scale with:
+Spacing uses a ratio-based fluid scale with:
 
 ```txt
 mobile base space: 24px
@@ -140,7 +140,7 @@ breakpoint variables
 --text-line-height
 ```
 
-Heading sizes use the ACSS-style heading scale:
+Heading sizes use the ratio-based heading scale:
 
 ```txt
 h6 = base heading
@@ -247,4 +247,3 @@ Incorrect:
 ```txt
 Core token -> external CSS file by default
 ```
-

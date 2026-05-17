@@ -6,7 +6,7 @@ This blueprint defines portable design decisions for website builds across page 
 
 Use the builder's native features first. Use Custom CSS only when the native feature set cannot express the requirement cleanly.
 
-This is not a shipped external CSS framework by default. It is a reusable setup model for tokens, classes, architecture, and builder adapters.
+This is not shipped standalone CSS by default. It is a reusable setup model for tokens, classes, architecture, and builder adapters.
 
 ## Implementation Order
 
@@ -77,7 +77,7 @@ This belongs in global/site CSS, theme CSS, or the target builder's global CSS e
 
 ## Fluid Scale Source Settings
 
-The scale follows an ACSS-style model: store readable source values, generate final `rem` clamps.
+The scale follows a ratio-based fluid model: store readable source values, generate final `rem` clamps.
 
 ```json
 {
@@ -539,7 +539,7 @@ Use this as a CSS architecture guardrail, not as a default builder setup require
 
 ### Low Specificity
 
-When writing framework-style CSS, prefer `:where()` for low-specificity defaults:
+When writing reusable project CSS, prefer `:where()` for low-specificity defaults:
 
 ```css
 :where(.card) {

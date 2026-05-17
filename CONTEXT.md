@@ -1,12 +1,12 @@
 # Builder-Agnostic Builder Blueprint
 
-A reusable website-building blueprint that defines portable design decisions while preferring each builder's native features over a shipped external CSS framework.
+A reusable website-building blueprint that defines portable design decisions while preferring each builder's native features over shipped standalone CSS.
 
 ## Language
 
 **Blueprint**:
 A reusable setup specification for tokens, classes, builder mappings, and project rules.
-_Avoid_: CSS framework, theme, library
+_Avoid_: theme, library
 
 **Core**:
 The builder-agnostic decisions that should stay portable across tools.
@@ -14,14 +14,14 @@ _Avoid_: Elementor setup, Bricks setup
 
 **Adapter**:
 A builder-specific mapping that applies the Core through native controls, presets, theme settings, or supported CSS entry points.
-_Avoid_: Separate framework, fork
+_Avoid_: Separate system, fork
 
 **Native Feature**:
 A capability provided directly by a builder or platform, such as Elementor Variables, Bricks classes, or WordPress `theme.json`.
 _Avoid_: Custom CSS fallback
 
 **External CSS**:
-A standalone CSS file shipped and loaded as framework code.
+A standalone CSS file shipped and loaded as reusable project code.
 _Avoid_: Default implementation
 
 **Custom CSS**:
@@ -106,5 +106,5 @@ _Avoid_: Minimal Core token
 ## Flagged Ambiguities
 
 - "Elementor V4 blueprint" was too narrow. Resolved: the canonical concept is a builder-agnostic **Blueprint**, with Elementor V4 as one **Adapter**.
-- "Framework" can imply an external CSS package. Resolved: use **Blueprint** for the reusable setup and reserve **External CSS** for optional project-specific delivery.
+- "Framework" can imply a shipped CSS package. Resolved: use **Blueprint** for the reusable setup and reserve **External CSS** for optional project-specific delivery.
 - Prefix naming such as `o-container` and `c-section` is useful for larger systems but conflicts with the current builder-native minimal setup. Resolved: use **Starter Classes** by default and treat prefixed naming as **Expansion Naming**.
