@@ -1,0 +1,88 @@
+/*
+  Builder-Agnostic Builder Blueprint
+  Generated token reference only.
+
+  Prefer creating these through native builder variables/tokens.
+  Do not treat this as the default delivery model.
+*/
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  /* Colors */
+  --primary: oklch(18% 0.03 260);
+  --secondary: oklch(46% 0.03 260);
+  --accent: oklch(62% 0.15 255);
+  --base: oklch(99% 0.003 260);
+  --surface: oklch(96% 0.006 260);
+  --shade: oklch(13% 0.02 260);
+  --border-color: oklch(90% 0.01 260);
+  --white: oklch(100% 0 0);
+  --black: oklch(0% 0 0);
+
+  /* Spacing and layout */
+  --space-xs: clamp(1.333rem, calc(1.357rem + -0.017vw), 1.351rem);
+  --space-s: clamp(1.800rem, calc(1.729rem + 0.198vw), 2.000rem);
+  --space-m: clamp(2.400rem, calc(2.185rem + 0.596vw), 3.000rem);
+  --space-l: clamp(3.199rem, calc(2.734rem + 1.293vw), 4.500rem);
+  --space-xl: clamp(4.265rem, calc(3.375rem + 2.471vw), 6.750rem);
+  --space-xxl: clamp(5.685rem, calc(4.096rem + 4.414vw), 10.125rem);
+  --section-space: clamp(4.800rem, calc(3.297rem + 4.175vw), 9.000rem);
+  --gutter: clamp(1.600rem, calc(-0.690rem + 6.362vw), 8.000rem);
+  --content-width: 140rem;
+
+  /* Typography */
+  --font-heading: "Inter", system-ui, sans-serif;
+  --font-text: "Inter", system-ui, sans-serif;
+  --font-weight-heading: 700;
+  --font-weight-text: 400;
+
+  --h1: clamp(4.479rem, calc(3.505rem + 2.705vw), 7.200rem);
+  --h1-line-height: calc(2px + 1.8ex);
+  --h2: clamp(3.732rem, calc(2.808rem + 2.567vw), 6.315rem);
+  --h2-line-height: calc(3px + 1.9ex);
+  --h3: clamp(3.110rem, calc(2.528rem + 1.617vw), 4.737rem);
+  --h3-line-height: calc(4px + 2ex);
+  --h4: clamp(2.592rem, calc(2.248rem + 0.956vw), 3.554rem);
+  --h4-line-height: calc(4px + 2ex);
+  --h5: clamp(2.160rem, calc(1.979rem + 0.503vw), 2.666rem);
+  --h5-line-height: calc(4px + 2ex);
+  --h6: clamp(1.800rem, calc(1.728rem + 0.199vw), 2.000rem);
+  --h6-line-height: calc(4px + 2ex);
+
+  --text-xs: clamp(1.013rem, calc(1.146rem + -0.098vw), 1.111rem);
+  --text-s: clamp(1.333rem, calc(1.327rem + 0.017vw), 1.350rem);
+  --text-m: clamp(1.600rem, calc(1.528rem + 0.199vw), 1.800rem);
+  --text-l: clamp(1.920rem, calc(1.748rem + 0.477vw), 2.399rem);
+  --text-xl: clamp(2.304rem, calc(1.984rem + 0.889vw), 3.198rem);
+  --text-xxl: clamp(2.765rem, calc(2.228rem + 1.490vw), 4.263rem);
+  --text-line-height: calc(6px + 2.5ex);
+
+  /* Shape and border */
+  --radius-xs: clamp(0.200rem, calc(0.128rem + 0.199vw), 0.400rem);
+  --radius-s: clamp(0.400rem, calc(0.328rem + 0.199vw), 0.600rem);
+  --radius-m: clamp(0.800rem, calc(0.657rem + 0.398vw), 1.200rem);
+  --radius-l: clamp(1.200rem, calc(0.914rem + 0.795vw), 2.000rem);
+  --radius-xl: clamp(1.600rem, calc(1.027rem + 1.590vw), 3.200rem);
+  --border-width: 1px;
+
+  /* Shadows. Prefer native builder shadow controls where possible. */
+  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.06);
+  --shadow-s: 0 2px 8px rgb(0 0 0 / 0.08);
+  --shadow-m: 0 8px 24px rgb(0 0 0 / 0.10);
+  --shadow-l: 0 16px 40px rgb(0 0 0 / 0.12);
+  --shadow-xl: 0 24px 64px rgb(0 0 0 / 0.14);
+
+  /* Focus */
+  --focus-color: var(--primary);
+  --focus-width: 2px;
+  --focus-offset: 2px;
+
+  /* Transitions */
+  --transition-duration: 0.3s;
+  --transition-timing: ease-in-out;
+  --transition-delay: 0s;
+}
+
