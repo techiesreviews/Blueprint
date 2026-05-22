@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "name": "WordPress theme.json Adapter",
+    "target": "wordpress-gutenberg",
+    "themeJsonVersion": 3,
+    "schema": "https://schemas.wp.org/trunk/theme.json"
+  },
+  "principles": {
+    "gutenbergNativeFirst": true,
+    "useCoreBlockSettingsFirst": true,
+    "preferBlockStylesAndVariationsOverClasses": true,
+    "preferThemeJsonOverCss": true
+  },
+  "settings": {
+    "appearanceTools": true,
+    "useRootPaddingAwareAlignments": true,
+    "layout": {
+      "contentSizeToken": "--content-width",
+      "wideSizeToken": "--content-width"
+    },
+    "color": {
+      "custom": true,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "defaultPalette": false
+    },
+    "spacing": {
+      "customSpacingSize": true,
+      "defaultSpacingSizes": false,
+      "units": ["%", "px", "em", "rem", "vh", "vw"]
+    },
+    "typography": {
+      "customFontSize": true,
+      "defaultFontSizes": false,
+      "fluid": true,
+      "writingMode": true
+    }
+  },
+  "styles": {
+    "color": {
+      "backgroundToken": "--base",
+      "textToken": "--shade"
+    },
+    "spacing": {
+      "blockGapToken": "--space-m",
+      "padding": {
+        "leftToken": "--gutter",
+        "rightToken": "--gutter"
+      }
+    },
+    "typography": {
+      "fontFamilyToken": "--font-text",
+      "fontSizeToken": "--text-m",
+      "lineHeightToken": "--text-line-height"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamilyToken": "--font-heading",
+          "fontWeightToken": "--font-weight-heading"
+        }
+      },
+      "h1": { "typography": { "fontSizeToken": "--h1", "lineHeightToken": "--h1-line-height" } },
+      "h2": { "typography": { "fontSizeToken": "--h2", "lineHeightToken": "--h2-line-height" } },
+      "h3": { "typography": { "fontSizeToken": "--h3", "lineHeightToken": "--h3-line-height" } },
+      "h4": { "typography": { "fontSizeToken": "--h4", "lineHeightToken": "--h4-line-height" } },
+      "h5": { "typography": { "fontSizeToken": "--h5", "lineHeightToken": "--h5-line-height" } },
+      "h6": { "typography": { "fontSizeToken": "--h6", "lineHeightToken": "--h6-line-height" } },
+      "button": {
+        "border": { "radiusToken": "--radius-s" },
+        "color": {
+          "backgroundToken": "--primary",
+          "textToken": "--base"
+        },
+        "spacing": {
+          "padding": {
+            "topToken": "--space-s",
+            "rightToken": "--space-m",
+            "bottomToken": "--space-s",
+            "leftToken": "--space-m"
+          }
+        },
+        "typography": {
+          "fontSizeToken": "--text-m",
+          "fontWeightToken": "--font-weight-heading"
+        }
+      }
+    },
+    "blocks": {
+      "core/button": {
+        "variations": {
+          "outline": {
+            "border": {
+              "color": "currentColor",
+              "widthToken": "--border-width"
+            },
+            "color": {
+              "textToken": "--primary"
+            }
+          }
+        }
+      },
+      "core/buttons": {
+        "spacing": {
+          "blockGapToken": "--space-s"
+        }
+      },
+      "core/columns": {
+        "spacing": {
+          "blockGapToken": "--space-m"
+        }
+      },
+      "core/group": {
+        "spacing": {
+          "blockGapToken": "--space-m"
+        }
+      },
+      "core/navigation": {
+        "typography": {
+          "fontSizeToken": "--text-m"
+        },
+        "elements": {
+          "link": {
+            "typography": {
+              "textDecoration": "none"
+            },
+            ":hover": {
+              "typography": {
+                "textDecoration": "underline"
+              }
+            }
+          }
+        }
+      },
+      "core/quote": {
+        "border": {
+          "color": "currentColor",
+          "style": "solid",
+          "width": "0 0 0 var:preset|spacing|space-xs"
+        },
+        "spacing": {
+          "padding": {
+            "leftToken": "--space-m"
+          }
+        },
+        "variations": {
+          "plain": {
+            "border": {
+              "style": "none",
+              "width": "0"
+            },
+            "spacing": {
+              "padding": {
+                "left": "0"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "templateParts": [
+    { "area": "header", "name": "header", "title": "Header" },
+    { "area": "footer", "name": "footer", "title": "Footer" }
+  ]
+}

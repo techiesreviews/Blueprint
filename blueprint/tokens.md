@@ -16,9 +16,11 @@ Use native builder/platform token systems first. Use the generated CSS reference
 
 ## Source Of Truth
 
-Source settings live in [source-settings.json](source-settings.json).
+The machine-readable Core contract lives in [core.json](core.json).
 
 Generated CSS reference values live in [generated-tokens.css](reference/generated-tokens.css).
+
+Generated WordPress `theme.json` reference values live in [generated-theme.json](reference/generated-theme.json).
 
 ## Naming
 

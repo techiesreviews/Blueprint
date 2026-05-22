@@ -1,0 +1,235 @@
+{
+  "metadata": {
+    "name": "Builder Blueprint",
+    "version": "1.0.0"
+  },
+  "philosophy": {
+    "builderAgnostic": true,
+    "nativeBuilderFirst": true,
+    "targetWorkflowDeterminesNativeSurface": true,
+    "externalCssByDefault": false,
+    "customCssByDefault": false,
+    "classNaming": "shallow-bem",
+    "globalHtmlElementStyling": false
+  },
+  "environment": {
+    "rootFontSizePercent": 62.5,
+    "rootPx": 10,
+    "remAssumption": "1rem = 10px"
+  },
+  "fluidScale": {
+    "viewportMinPx": 360,
+    "viewportMaxPx": 1366,
+    "formula": {
+      "slope": "(max - min) / (viewportMax - viewportMin) * 100",
+      "intercept": "min - slope * viewportMin / 100",
+      "css": "clamp(min, calc(intercept + slope * 1vw), max)"
+    }
+  },
+  "sourceSettings": {
+    "spacing": {
+      "baseSpaceMinPx": 24,
+      "baseSpaceMaxPx": 30,
+      "mobileSpaceScale": 1.333,
+      "desktopSpaceScale": 1.5,
+      "sectionSpaceMinPx": 48,
+      "sectionSpaceMaxPx": 90,
+      "gutterMinPx": 16,
+      "gutterMaxPx": 80,
+      "contentWidthPx": 1400
+    },
+    "typography": {
+      "baseTextMinPx": 16,
+      "baseTextMaxPx": 18,
+      "textScaleMin": 1.2,
+      "textScaleMax": 1.333,
+      "baseHeadingMinPx": 18,
+      "baseHeadingMaxPx": 20,
+      "headingScaleMin": 1.2,
+      "headingScaleMax": 1.333,
+      "h1MaxPx": 72
+    },
+    "radius": {
+      "radiusXsMinPx": 2,
+      "radiusXsMaxPx": 4,
+      "radiusSMinPx": 4,
+      "radiusSMaxPx": 6,
+      "radiusMMinPx": 8,
+      "radiusMMaxPx": 12,
+      "radiusLMinPx": 12,
+      "radiusLMaxPx": 20,
+      "radiusXlMinPx": 16,
+      "radiusXlMaxPx": 32
+    }
+  },
+  "tokens": {
+    "colors": [
+      {
+        "name": "--primary",
+        "slug": "primary",
+        "defaultValue": "oklch(18% 0.03 260)",
+        "role": "dark brand/action color"
+      },
+      {
+        "name": "--secondary",
+        "slug": "secondary",
+        "defaultValue": "oklch(46% 0.03 260)",
+        "role": "muted support color"
+      },
+      {
+        "name": "--accent",
+        "slug": "accent",
+        "defaultValue": "oklch(62% 0.15 255)",
+        "role": "restrained highlight/accent color"
+      },
+      {
+        "name": "--base",
+        "slug": "base",
+        "defaultValue": "oklch(99% 0.003 260)",
+        "role": "main light background"
+      },
+      {
+        "name": "--surface",
+        "slug": "surface",
+        "defaultValue": "oklch(96% 0.006 260)",
+        "role": "subtle raised or grouped surface"
+      },
+      {
+        "name": "--shade",
+        "slug": "shade",
+        "defaultValue": "oklch(13% 0.02 260)",
+        "role": "main dark text/surface"
+      },
+      {
+        "name": "--border-color",
+        "slug": "border-color",
+        "defaultValue": "oklch(90% 0.01 260)",
+        "role": "default neutral border"
+      },
+      {
+        "name": "--white",
+        "slug": "white",
+        "defaultValue": "oklch(100% 0 0)",
+        "role": "absolute white"
+      },
+      {
+        "name": "--black",
+        "slug": "black",
+        "defaultValue": "oklch(0% 0 0)",
+        "role": "absolute black"
+      }
+    ],
+    "spacing": [
+      { "name": "--space-xs", "slug": "space-xs", "kind": "fluid-space", "step": -2 },
+      { "name": "--space-s", "slug": "space-s", "kind": "fluid-space", "step": -1 },
+      { "name": "--space-m", "slug": "space-m", "kind": "fluid-space", "step": 0 },
+      { "name": "--space-l", "slug": "space-l", "kind": "fluid-space", "step": 1 },
+      { "name": "--space-xl", "slug": "space-xl", "kind": "fluid-space", "step": 2 },
+      { "name": "--space-xxl", "slug": "space-xxl", "kind": "fluid-space", "step": 3 },
+      { "name": "--section-space", "slug": "section-space", "kind": "fluid-range", "source": "sectionSpace" },
+      { "name": "--gutter", "slug": "gutter", "kind": "fluid-range", "source": "gutter" },
+      { "name": "--content-width", "slug": "content-width", "kind": "static", "value": "140rem" }
+    ],
+    "typography": [
+      { "name": "--font-heading", "slug": "font-heading", "kind": "font-family", "value": "\"Inter\", system-ui, sans-serif" },
+      { "name": "--font-text", "slug": "font-text", "kind": "font-family", "value": "\"Inter\", system-ui, sans-serif" },
+      { "name": "--font-weight-heading", "slug": "font-weight-heading", "kind": "font-weight", "value": "700" },
+      { "name": "--font-weight-text", "slug": "font-weight-text", "kind": "font-weight", "value": "400" },
+      { "name": "--h1", "slug": "h1", "kind": "fluid-heading", "level": 1 },
+      { "name": "--h1-line-height", "slug": "h1-line-height", "kind": "static", "value": "calc(2px + 1.8ex)" },
+      { "name": "--h2", "slug": "h2", "kind": "fluid-heading", "level": 2 },
+      { "name": "--h2-line-height", "slug": "h2-line-height", "kind": "static", "value": "calc(3px + 1.9ex)" },
+      { "name": "--h3", "slug": "h3", "kind": "fluid-heading", "level": 3 },
+      { "name": "--h3-line-height", "slug": "h3-line-height", "kind": "static", "value": "calc(4px + 2ex)" },
+      { "name": "--h4", "slug": "h4", "kind": "fluid-heading", "level": 4 },
+      { "name": "--h4-line-height", "slug": "h4-line-height", "kind": "static", "value": "calc(4px + 2ex)" },
+      { "name": "--h5", "slug": "h5", "kind": "fluid-heading", "level": 5 },
+      { "name": "--h5-line-height", "slug": "h5-line-height", "kind": "static", "value": "calc(4px + 2ex)" },
+      { "name": "--h6", "slug": "h6", "kind": "fluid-heading", "level": 6 },
+      { "name": "--h6-line-height", "slug": "h6-line-height", "kind": "static", "value": "calc(4px + 2ex)" },
+      { "name": "--text-xs", "slug": "text-xs", "kind": "fluid-text", "step": -2 },
+      { "name": "--text-s", "slug": "text-s", "kind": "fluid-text", "step": -1 },
+      { "name": "--text-m", "slug": "text-m", "kind": "fluid-text", "step": 0 },
+      { "name": "--text-l", "slug": "text-l", "kind": "fluid-text", "step": 1 },
+      { "name": "--text-xl", "slug": "text-xl", "kind": "fluid-text", "step": 2 },
+      { "name": "--text-xxl", "slug": "text-xxl", "kind": "fluid-text", "step": 3 },
+      { "name": "--text-line-height", "slug": "text-line-height", "kind": "static", "value": "calc(6px + 2.5ex)" }
+    ],
+    "shapeAndBorder": [
+      { "name": "--radius-xs", "slug": "radius-xs", "kind": "fluid-radius", "size": "xs" },
+      { "name": "--radius-s", "slug": "radius-s", "kind": "fluid-radius", "size": "s" },
+      { "name": "--radius-m", "slug": "radius-m", "kind": "fluid-radius", "size": "m" },
+      { "name": "--radius-l", "slug": "radius-l", "kind": "fluid-radius", "size": "l" },
+      { "name": "--radius-xl", "slug": "radius-xl", "kind": "fluid-radius", "size": "xl" },
+      { "name": "--border-width", "slug": "border-width", "kind": "static", "value": "1px" }
+    ],
+    "shadow": [
+      { "name": "--shadow-xs", "slug": "shadow-xs", "kind": "static", "value": "0 1px 2px rgb(0 0 0 / 0.06)" },
+      { "name": "--shadow-s", "slug": "shadow-s", "kind": "static", "value": "0 2px 8px rgb(0 0 0 / 0.08)" },
+      { "name": "--shadow-m", "slug": "shadow-m", "kind": "static", "value": "0 8px 24px rgb(0 0 0 / 0.10)" },
+      { "name": "--shadow-l", "slug": "shadow-l", "kind": "static", "value": "0 16px 40px rgb(0 0 0 / 0.12)" },
+      { "name": "--shadow-xl", "slug": "shadow-xl", "kind": "static", "value": "0 24px 64px rgb(0 0 0 / 0.14)" }
+    ],
+    "focus": [
+      { "name": "--focus-color", "slug": "focus-color", "kind": "static", "value": "var(--primary)" },
+      { "name": "--focus-width", "slug": "focus-width", "kind": "static", "value": "2px" },
+      { "name": "--focus-offset", "slug": "focus-offset", "kind": "static", "value": "2px" }
+    ],
+    "transition": [
+      { "name": "--transition-duration", "slug": "transition-duration", "kind": "static", "value": "0.3s" },
+      { "name": "--transition-timing", "slug": "transition-timing", "kind": "static", "value": "ease-in-out" },
+      { "name": "--transition-delay", "slug": "transition-delay", "kind": "static", "value": "0s" }
+    ]
+  },
+  "classes": {
+    "layout": ["section", "container"],
+    "navigation": ["nav", "nav__inner", "nav__brand", "nav__menu", "nav__actions"],
+    "hero": ["hero", "hero__inner", "hero__content", "hero__media"],
+    "footer": ["footer", "footer__inner", "footer__nav"],
+    "typography": ["h1", "h2", "h3", "h4", "h5", "h6", "text"]
+  },
+  "targetWorkflows": ["WordPress Gutenberg", "Elementor", "Bricks", "plain HTML and CSS"],
+  "accessibility": {
+    "requirements": [
+      "visible focus states",
+      "skip-link support",
+      "reduced motion support",
+      "accessible hidden text pattern when needed",
+      "minimum interactive target sizing where the builder supports it",
+      "semantic state hooks such as aria-expanded where relevant"
+    ]
+  },
+  "policies": {
+    "customCssAllowedWhen": [
+      "The selected target workflow has no native control for the needed behavior.",
+      "The selected adapter documents a gap that the native surface cannot express cleanly.",
+      "A project requires container queries.",
+      "A project requires advanced selectors.",
+      "A project requires global setup CSS like html { font-size: 62.5%; }.",
+      "A project-specific component needs behavior the builder cannot express."
+    ],
+    "forbiddenDefaults": [
+      "button classes",
+      "rich-text/content/prose classes",
+      "form classes",
+      "spacing utility classes",
+      "layout object classes",
+      "accessibility utility classes",
+      "theme context attributes",
+      "color tint/shade scales",
+      "contrast text variables",
+      "link color variables",
+      "opacity variables",
+      "breakpoint variables",
+      "z-index variables",
+      "global HTML element styling",
+      "component-scoped CSS variables",
+      "default class-level Custom CSS",
+      "nav item/link classes",
+      "footer legal classes",
+      "container width variants",
+      "modifiers like hero--dark or nav--sticky",
+      "external CSS folder structure"
+    ]
+  }
+}

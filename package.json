@@ -1,0 +1,13 @@
+{
+  "name": "builder-blueprint",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agentic workflow source for builder-agnostic website setup.",
+  "scripts": {
+    "generate:tokens": "node tools/generate-token-reference",
+    "generate:theme-json": "node tools/generate-theme-json",
+    "generate": "npm run generate:tokens && npm run generate:theme-json",
+    "test:generated": "node tools/test-generated-outputs",
+    "validate": "node tools/validate-blueprint"
+  }
+}

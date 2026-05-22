@@ -10,11 +10,11 @@ This is not shipped standalone CSS by default. It is a reusable setup model for 
 
 ## Implementation Order
 
-1. Confirm the target builder/platform.
+1. Confirm the target workflow.
 2. Apply global setup assumptions.
-3. Create tokens through the builder's native token/variable system where possible.
-4. Create reusable classes through the builder's native class system where possible.
-5. Map class styles through native controls.
+3. Use the adapter-defined native surface for that workflow.
+4. Create tokens through the native token, variable, preset, or settings system where possible.
+5. Create reusable classes only when the target workflow's adapter calls for classes.
 6. Add project-specific Custom CSS only for real gaps.
 7. Document any adapter limitation or custom workaround.
 
@@ -77,7 +77,7 @@ This belongs in global/site CSS, theme CSS, or the target builder's global CSS e
 
 ## Fluid Scale Source Settings
 
-The scale follows a ratio-based fluid model: store readable source values, generate final `rem` clamps.
+The scale follows a ratio-based fluid model: store readable source values in [core.json](core.json), generate final `rem` clamps.
 
 ```json
 {
@@ -580,7 +580,9 @@ external CSS folder structure
 ## AI / Agent Rules
 
 ```txt
-Prefer native builder variables, presets, controls, and class systems.
+Prefer the selected target workflow's native surface before Custom CSS or external CSS.
+
+Use the adapter for the selected workflow to decide whether the native surface is variables, presets, builder classes, block settings, theme files, generated reference outputs, or project CSS.
 
 Create only the variables and classes listed in the blueprint unless the current project explicitly expands the system.
 

@@ -1,4 +1,4 @@
-# Builder-Agnostic Builder Blueprint
+# Builder Blueprint
 
 A reusable website-building blueprint that defines portable design decisions while preferring each builder's native features over shipped standalone CSS.
 
@@ -7,6 +7,22 @@ A reusable website-building blueprint that defines portable design decisions whi
 **Blueprint**:
 A reusable setup specification for tokens, classes, builder mappings, and project rules.
 _Avoid_: theme, library
+
+**Core Contract**:
+The single machine-readable contract for the **Core**, stored at `blueprint/core.json`.
+_Avoid_: source settings file, generated output, adapter mapping
+
+**Agentic Workflow Source**:
+A reusable source of truth intended for AI agents to read, apply, and generate project-specific setup from.
+_Avoid_: WordPress plugin, WordPress theme
+
+**Skill**:
+An agent workflow that applies the **Blueprint** to a specific task, adapter, validation pass, or generated output.
+_Avoid_: Blueprint replacement, source of truth
+
+**Tool**:
+A script or executable helper used by a **Skill** to generate, validate, or export project artifacts from the **Blueprint**.
+_Avoid_: Blueprint, adapter
 
 **Core**:
 The builder-agnostic decisions that should stay portable across tools.
@@ -19,6 +35,14 @@ _Avoid_: Separate system, fork
 **Native Feature**:
 A capability provided directly by a builder or platform, such as Elementor Variables, Bricks classes, or WordPress `theme.json`.
 _Avoid_: Custom CSS fallback
+
+**Target Workflow**:
+The implementation path selected for the current project, such as WordPress Gutenberg, Elementor, Bricks, or plain HTML and CSS.
+_Avoid_: Universal adapter
+
+**Native Surface**:
+The first-choice implementation surface for a **Target Workflow**, such as builder variables, builder classes, `theme.json`, block settings, or project CSS.
+_Avoid_: Universal styling layer
 
 **External CSS**:
 A standalone CSS file shipped and loaded as reusable project code.
@@ -79,8 +103,14 @@ _Avoid_: Minimal Core token
 ## Relationships
 
 - The **Core** defines decisions once and can have many **Adapters**.
+- The **Core Contract** is the canonical machine-readable source for the **Core**.
 - An **Adapter** applies the **Core** through one builder or platform.
+- A **Skill** executes a repeatable agent workflow against the **Blueprint**.
+- The **Blueprint** is the contract; **Skills** are the execution layer.
+- A **Tool** provides executable machinery that **Skills** can call.
 - A **Native Feature** is preferred before **Custom CSS**.
+- A **Target Workflow** determines the appropriate **Native Surface**.
+- A **Native Surface** is defined by an **Adapter**, not assumed globally by the **Core**.
 - **External CSS** is not the default delivery model for the **Blueprint**.
 - A **Conceptual Layer** organizes the **Core** without requiring matching files.
 - A **Portable Preference** should survive switching from one builder to another.
@@ -108,3 +138,7 @@ _Avoid_: Minimal Core token
 - "Elementor V4 blueprint" was too narrow. Resolved: the canonical concept is a builder-agnostic **Blueprint**, with Elementor V4 as one **Adapter**.
 - "Framework" can imply a shipped CSS package. Resolved: use **Blueprint** for the reusable setup and reserve **External CSS** for optional project-specific delivery.
 - Prefix naming such as `o-container` and `c-section` is useful for larger systems but conflicts with the current builder-native minimal setup. Resolved: use **Starter Classes** by default and treat prefixed naming as **Expansion Naming**.
+- "Repo location" could imply installing the repository inside WordPress. Resolved: the repository is an **Agentic Workflow Source** kept outside WordPress projects; WordPress receives generated or copied artifacts through an **Adapter**.
+- "Skills instead of Blueprint" could make agent procedures the source of truth. Resolved: the **Blueprint** remains the contract and **Skills** become the execution layer.
+- "Scripts" was too generic for reusable agent-facing machinery. Resolved: use **Tool** for executable helpers and place them under `tools/`.
+- "`source-settings.json` and `core.json` could become competing sources of truth. Resolved: use `blueprint/core.json` as the single **Core Contract** and remove `source-settings.json` during implementation.

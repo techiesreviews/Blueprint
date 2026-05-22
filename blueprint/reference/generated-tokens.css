@@ -1,5 +1,5 @@
 /*
-  Builder-Agnostic Builder Blueprint
+  Builder Blueprint
   Generated token reference only.
 
   Prefer creating these through native builder variables/tokens.
@@ -51,7 +51,6 @@ html {
   --h5-line-height: calc(4px + 2ex);
   --h6: clamp(1.800rem, calc(1.728rem + 0.199vw), 2.000rem);
   --h6-line-height: calc(4px + 2ex);
-
   --text-xs: clamp(1.013rem, calc(1.146rem + -0.098vw), 1.111rem);
   --text-s: clamp(1.333rem, calc(1.327rem + 0.017vw), 1.350rem);
   --text-m: clamp(1.600rem, calc(1.528rem + 0.199vw), 1.800rem);
